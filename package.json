@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "express": "^4.16.4",
+    "react-google-maps": "^9.4.5",
     "knex": "^0.16.5",
     "sqlite3": "^4.0.6",
     "superagent": "^5.0.2"
