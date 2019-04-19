@@ -1,19 +1,32 @@
 import React from 'react'
-
 import { getDucks } from '../api'
 
-import Map from './Map'
 import MapContainer from './MapContainer'
 
-const App = () => {
-  getDucks()
-    .then(ducks => console.log(ducks))
-  return (
-    <React.Fragment>
-      <h1>React development has begun!</h1>
-      <MapContainer />
-    </React.Fragment>
-  )
+class App extends React.Component {
+  state = {
+    ducks: {},
+    recievedData: false
+  }
+
+  componentDidMount () {
+    getDucks()
+      .then(ducks => {
+        this.setState({
+          ducks: ducks,
+          recievedData: true
+        })
+      })
+  }
+
+  render () {
+    return (
+      <React.Fragment>
+        <h1>Quackity Quack-Quack!!</h1>
+        {this.state.recievedData && <MapContainer ducks={this.state.ducks}/>}
+      </React.Fragment>
+    )
+  }
 }
 
 export default App

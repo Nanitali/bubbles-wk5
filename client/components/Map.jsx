@@ -7,17 +7,21 @@ import {
 } from 'react-google-maps'
 
 const Map = withGoogleMap(props => {
+  const duckArray = props.ducks.map(marker => {
+    return <Marker
+      key={marker.id}
+      position={{ lat: marker.lat, lng: marker.lng }}
+      // onClick={() => this.props.onMarkerClick(marker)}
+    />
+  })
   return (
     <GoogleMap
       ref={props.onMapLoad}
-      defaultZoom={8}
-      defaultCenter={{ lat: 39.174413, lng: 8.263783 }}>
-      <Marker
-      // key={this.props.id}
-        position={{ lat: 42.720514, lng: 18.999225 }}
-        onClick={() => this.props.onMarkerClick(marker)}
-      />
-
+      defaultZoom={16}
+      defaultCenter={{ lat: -36.8650451, lng: 174.7751602 }}>
+      <div>
+        {duckArray}
+      </div>
     </GoogleMap>
   )
 })
