@@ -3,7 +3,10 @@ import Map from './Map'
 
 export default class MapContainer extends React.Component {
     state = {
-      ducks: this.props.ducks
+      ducks: this.props.ducks.map(duck => {
+        duck.showInfo = false
+        return duck
+      })
     }
 
     render () {

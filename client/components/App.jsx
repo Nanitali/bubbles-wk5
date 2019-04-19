@@ -3,6 +3,7 @@ import React from 'react'
 import DuckForm from './DuckForm'
 import { getDucks } from '../api'
 import MapContainer from './MapContainer'
+import secretKeys from '../../secretKeys'
 
 class App extends React.Component {
   state = {
@@ -35,6 +36,7 @@ class App extends React.Component {
   }
 
   render () {
+    document.getElementById('gmscript').src = secretKeys
     return (
       <React.Fragment>
         <div style={{ marginLeft: '10%', marginRight: '10%' }}>
