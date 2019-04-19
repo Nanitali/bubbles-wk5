@@ -1,15 +1,34 @@
 import React from 'react'
 
 import DuckForm from './DuckForm'
-
 import { getDucks } from '../api'
+import MapContainer from './MapContainer'
 
-const App = () => {
-  getDucks()
-    .then(ducks => console.log(ducks))
-  return (
-    <DuckForm />
-  )
+class App extends React.Component {
+  state = {
+    ducks: {},
+    recievedData: false
+  }
+
+  componentDidMount () {
+    getDucks()
+      .then(ducks => {
+        this.setState({
+          ducks: ducks,
+          recievedData: true
+        })
+      })
+  }
+
+  render () {
+    return (
+      <React.Fragment>
+        <h1>Quackity Quack-Quack!!</h1>
+        {this.state.recievedData && <MapContainer ducks={this.state.ducks}/>}
+         <DuckForm />
+      </React.Fragment>
+    )
+  }
 }
 
 export default App
