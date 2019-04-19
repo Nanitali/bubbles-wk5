@@ -21,13 +21,29 @@ class App extends React.Component {
       })
   }
 
+  refreshData = () => {
+    this.setState({
+      recievedData: false
+    }, () => {
+      getDucks()
+        .then(ducks => {
+          this.setState({
+            ducks: ducks,
+            recievedData: true
+          })
+        })
+    })
+  }
+
   render () {
     document.getElementById('gmscript').src = secretKeys
     return (
       <React.Fragment>
-        <h1>Quackity Quack-Quack!!</h1>
-        {this.state.recievedData && <MapContainer ducks={this.state.ducks}/>}
-        <DuckForm />
+        <div style={{ marginLeft: '10%', marginRight: '10%' }}>
+          <h1 className="title is-1">Quackity Quack-Quack!!</h1>
+          {this.state.recievedData && <MapContainer ducks={this.state.ducks}/>}
+          <DuckForm refresh={this.refreshData} />
+        </div>
       </React.Fragment>
     )
   }
