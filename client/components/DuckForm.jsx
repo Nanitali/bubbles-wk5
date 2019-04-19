@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { addDuck } from '../api'
+
 export default class DuckFrom extends React.Component {
   state = {
     message: '',
@@ -27,6 +29,16 @@ export default class DuckFrom extends React.Component {
 
   submitHandler = e => {
     e.preventDefault()
+    const newDuck = {
+      name: this.state.name,
+      lat: this.state.lat,
+      lng: this.state.lng,
+      contact: this.state.contact,
+      details: this.state.details,
+      timeframe: this.state.timeframe,
+      type: this.state.type
+    }
+    addDuck(newDuck)
   }
 
   render () {

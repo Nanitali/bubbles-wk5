@@ -8,3 +8,12 @@ export function getDucks () {
       return res.body
     })
 }
+
+export function addDuck (newDuck) {
+  return request
+    .post(duckUrl)
+    .send(newDuck)
+    .then(res => {
+      return res.body
+    })
+}
