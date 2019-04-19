@@ -6,13 +6,29 @@ import {
   Marker
 } from 'react-google-maps'
 
+const infoStyle = {
+  color: 'rebeccaPurple',
+  backgroundColor: 'aliceBlue',
+  textAlign: 'center'
+}
+
 const Map = withGoogleMap(props => {
   const duckArray = props.ducks.map(marker => {
     return <Marker
       key={marker.id}
       position={{ lat: marker.lat, lng: marker.lng }}
-      // onClick={() => this.props.onMarkerClick(marker)}
-    />
+      onClick={true}>
+
+      {
+        < InfoWindow>
+          <div id="info-window">
+            <p id="info-details">{marker.details}</p>
+            <p style={infoStyle} id="info-type">{marker.type}</p>
+            <p id="info-timeframe">{marker.timeframe}</p>
+          </div>
+        </InfoWindow>
+      }
+    </Marker>
   })
   return (
     <GoogleMap
