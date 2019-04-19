@@ -39,6 +39,18 @@ export default class DuckFrom extends React.Component {
       type: this.state.type
     }
     addDuck(newDuck)
+      .then(() => {
+        this.setState({
+          message: 'Your duck was added!',
+          name: '',
+          lat: '',
+          lng: '',
+          contact: '',
+          details: '',
+          timeframe: '',
+          type: ''
+        })
+      })
   }
 
   render () {
