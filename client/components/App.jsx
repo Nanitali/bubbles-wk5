@@ -1,6 +1,7 @@
 import React from 'react'
-import { getDucks } from '../api'
 
+import DuckForm from './DuckForm'
+import { getDucks } from '../api'
 import MapContainer from './MapContainer'
 
 class App extends React.Component {
@@ -24,6 +25,7 @@ class App extends React.Component {
       <React.Fragment>
         <h1>Quackity Quack-Quack!!</h1>
         {this.state.recievedData && <MapContainer ducks={this.state.ducks}/>}
+         <DuckForm />
       </React.Fragment>
     )
   }
