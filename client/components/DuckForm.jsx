@@ -2,8 +2,6 @@ import React from 'react'
 
 import { addDuck } from '../api'
 
-import { Button, Form } from 'react-bulma-components/full'
-
 export default class DuckForm extends React.Component {
   state = {
     message: '',
@@ -64,6 +62,7 @@ export default class DuckForm extends React.Component {
             value={this.state.name}
             onChange={this.changeHandler}
             placeholder='Your name'
+            className="input"
             name='name'/>
           <br/>
           <br/>
@@ -72,12 +71,14 @@ export default class DuckForm extends React.Component {
             value={this.state.lat}
             onChange={this.changeHandler}
             placeholder='lat'
+            className="input"
             name='lat'/>
           <input
             type='text'
             value={this.state.lng}
             onChange={this.changeHandler}
             placeholder='lng'
+            className="input"
             name='lng'/>
           <br/>
           <br/>
@@ -86,6 +87,7 @@ export default class DuckForm extends React.Component {
             value={this.state.details}
             onChange={this.changeHandler}
             placeholder='Need help with / are offering?'
+            className="input"
             name='details'/>
           <br/>
           <br/>
@@ -94,6 +96,7 @@ export default class DuckForm extends React.Component {
             value={this.state.timeframe}
             onChange={this.changeHandler}
             placeholder='When?'
+            className="input"
             name='timeframe'/>
           <br/>
           <br/>
@@ -102,10 +105,11 @@ export default class DuckForm extends React.Component {
             value={this.state.type}
             onChange={this.changeHandler}
             placeholder='Request/Offer'
+            className="input"
             name='type'/>
           <br/>
           <br/>
-          <input
+          <input className="button is-primary"
             type='submit'
             value='Add'/>
         </form>

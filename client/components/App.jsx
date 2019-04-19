@@ -37,9 +37,11 @@ class App extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <h1>Quackity Quack-Quack!!</h1>
-        {this.state.recievedData && <MapContainer ducks={this.state.ducks}/>}
-        <DuckForm refresh={this.refreshData} />
+        <div style={{ marginLeft: '10%', marginRight: '10%' }}>
+          <h1 className="title is-1">Quackity Quack-Quack!!</h1>
+          {this.state.recievedData && <MapContainer ducks={this.state.ducks}/>}
+          <DuckForm refresh={this.refreshData} />
+        </div>
       </React.Fragment>
     )
   }
