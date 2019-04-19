@@ -9,6 +9,7 @@ export default class MapContainer extends React.Component {
       })
     }
 
+    
     render () {
       return (
         <div style={{ height: '500px' }}>
