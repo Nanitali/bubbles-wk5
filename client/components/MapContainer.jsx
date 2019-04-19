@@ -3,12 +3,6 @@ import Map from './Map'
 
 export default class MapContainer extends React.Component {
     state = {
-      // markers: [{
-      //   position: {
-      //     lat: this.props.lat,
-      //     lng: this.props.lng
-      //   }
-      // }],
       ducks: this.props.ducks
     }
 
