@@ -19,7 +19,6 @@ const Map = withGoogleMap(props => {
       position={{ lat: marker.lat, lng: marker.lng }}
       onClick={true}>
 
-
       {
         < InfoWindow>
           <div id="info-window">
