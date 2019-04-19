@@ -16,13 +16,13 @@ export default class MapContainer extends React.Component {
 
   render () {
     return (
-      <div style={{ height: '100%' }}>
+      <div style={{ height: '500px' }}>
         <Map
           containerElement={
             <div style={{ height: '100%' }}/>
           }
           mapElement={
-            <div style={{ height: '100%' }} />
+            <div style={{ height: '100%' }}/>
           }
           markers={this.state.markers}
         />
