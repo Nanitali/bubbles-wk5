@@ -2,7 +2,9 @@ import React from 'react'
 
 import { addDuck } from '../api'
 
-export default class DuckFrom extends React.Component {
+import { Button, Form } from 'react-bulma-components/full'
+
+export default class DuckForm extends React.Component {
   state = {
     message: '',
     name: '',
@@ -49,7 +51,7 @@ export default class DuckFrom extends React.Component {
           details: '',
           timeframe: '',
           type: ''
-        })
+        }, this.props.refresh)
       })
   }
 

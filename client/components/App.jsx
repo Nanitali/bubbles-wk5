@@ -20,12 +20,26 @@ class App extends React.Component {
       })
   }
 
+  refreshData = () => {
+    this.setState({
+      recievedData: false
+    }, () => {
+      getDucks()
+        .then(ducks => {
+          this.setState({
+            ducks: ducks,
+            recievedData: true
+          })
+        })
+    })
+  }
+
   render () {
     return (
       <React.Fragment>
         <h1>Quackity Quack-Quack!!</h1>
         {this.state.recievedData && <MapContainer ducks={this.state.ducks}/>}
-         <DuckForm />
+        <DuckForm refresh={this.refreshData} />
       </React.Fragment>
     )
   }
