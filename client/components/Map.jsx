@@ -6,19 +6,24 @@ import {
   Marker
 } from 'react-google-maps'
 
-const apiKey = 'AIzaSyAyVeosTZnr1Aldn4YKc5RJ4FcLelQlX5Y'
+const Map = withGoogleMap(props => {
+  const duckArray = props.ducks.map(marker => {
+    return <Marker
+      key={marker.id}
+      position={{ lat: marker.lat, lng: marker.lng }}
+      // onClick={() => this.props.onMarkerClick(marker)}
+    />
+  })
+  return (
+    <GoogleMap
+      ref={props.onMapLoad}
+      defaultZoom={16}
+      defaultCenter={{ lat: -36.8650451, lng: 174.7751602 }}>
+      <div>
+        {duckArray}
+      </div>
+    </GoogleMap>
+  )
+})
 
-export default class Map extends React.Component {
-  render () {
-    return (
-      <GoogleMap defaultZoom={8} defaultCenter={{ lat: 39.174413, lng: 8.263783 }}>
-        <Marker
-          key={index}
-          position={{ lat: 42.720514, lng: 18.999225 }}
-          onClick={() => this.props.onMarkerClick(marker)}
-        />
-
-      </GoogleMap>
-    )
-  }
-}
+export default Map
